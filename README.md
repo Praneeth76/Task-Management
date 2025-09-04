@@ -8,7 +8,7 @@ This React application is designed with a focus on dynamic routing, responsive d
 
 ## Preview
 
-![Task Management App Preview](./assets/preview.png)
+![Task Management App Preview](./frontend/src/assets/preview.png)
 
 *Screenshot of the main dashboard with sidebar, navbar, and responsive layout.*
 
