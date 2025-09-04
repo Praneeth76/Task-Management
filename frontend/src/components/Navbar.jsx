@@ -125,8 +125,8 @@ export default function Navbar() {
         {sidebarOpen && (
           <nav className="mt-4 bg-white rounded-lg shadow-md p-4">
             <button onClick={() => setSidebarOpen(false)} className="mb-2 block text-left w-full">Close Sidebar</button>
-            <a href="/tasks" className="block py-1 px-2 hover:bg-gray-100 rounded">Tasks</a>
-            <a href="/mentors" className="block py-1 px-2 hover:bg-gray-100 rounded">Mentors</a>
+            <Link to="/tasks" className="block py-1 px-2 hover:bg-gray-100 rounded">Tasks</Link>
+            <Link to="/mentors" className="block py-1 px-2 hover:bg-gray-100 rounded">Mentors</Link>
           </nav>
         )}
       </div>
