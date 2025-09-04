@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FiSearch,
   FiBell,
@@ -23,11 +23,14 @@ export default function Navbar() {
   };
 
   const pageTitle = titleMap[location.pathname] || "Explore Task";
-
   const filterBy = filter[location.pathname] || "Deadline";
 
   const avatar =
-    "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"; 
+    "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+  // New state to track sidebar open/close
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
   return (
     <header className="w-full">
@@ -80,6 +83,7 @@ export default function Navbar() {
           <button
             aria-label="menu"
             className="w-11 h-11 rounded-full border bg-white flex items-center justify-center"
+            onClick={toggleSidebar}  // Added toggle here
           >
             <FiMenu className="text-2xl text-gray-700" />
           </button>
@@ -118,6 +122,13 @@ export default function Navbar() {
             <FiFilter className="text-gray-600" />
           </button>
         </div>
+        {sidebarOpen && (
+          <nav className="mt-4 bg-white rounded-lg shadow-md p-4">
+            <button onClick={() => setSidebarOpen(false)} className="mb-2 block text-left w-full">Close Sidebar</button>
+            <a href="/tasks" className="block py-1 px-2 hover:bg-gray-100 rounded">Tasks</a>
+            <a href="/mentors" className="block py-1 px-2 hover:bg-gray-100 rounded">Mentors</a>
+          </nav>
+        )}
       </div>
     </header>
   );
