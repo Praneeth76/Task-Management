@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import FileDropzone from "../components/FileDropzone";
 
 async function fetchTaskDetail(id) {
-  const res = await fetch(`http://localhost:5000/api/courses/${id}`);
+  const res = await fetch(`https://task-management-n71g.onrender.com/api/courses/${id}`);
   if (!res.ok) throw new Error("Failed to fetch task detail");
   return res.json();
 }
