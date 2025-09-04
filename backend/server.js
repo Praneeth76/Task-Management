@@ -8,10 +8,9 @@ const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
 
-// Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // change to your frontend URL when deployed
+    origin: "https://task-management-lac-psi.vercel.app", 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -19,14 +18,11 @@ app.use(
 
 app.use(express.json());
 
-// Routes
 app.use("/api", mentorRoutes);
 app.use("/api", courseRoutes);
 
-// Error handler
 app.use(errorHandler);
 
-// Start server after DB connects
 const PORT = process.env.PORT || 5000;
 connectDB().then(() => {
   app.listen(PORT, () => {
