@@ -1,5 +1,5 @@
 export async function fetchTasks() {
-  const res = await fetch("http://localhost:5000/api/courses");
+  const res = await fetch("https://task-management-n71g.onrender.com/api/courses");
   if (!res.ok) throw new Error("Could not fetch tasks");
   const data = await res.json();
   return {
@@ -9,7 +9,7 @@ export async function fetchTasks() {
 }
 
 export async function fetchMentors() {
-  const res = await fetch("http://localhost:5000/api/mentors");
+  const res = await fetch("https://task-management-n71g.onrender.com/api/mentors");
   if (!res.ok) {
     throw new Error("Failed to fetch mentors");
   }
